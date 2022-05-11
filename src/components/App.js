@@ -1,35 +1,16 @@
-import { useEffect, useState } from "react";
-import { getPost } from "../api";
-import { Home, Login } from "../pages";
+import { Home, Login ,Signup } from "../pages/index";
 import { Loader, Navbar } from "./";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useAuth } from "../hooks/index";
 
-const About = () => {
-  return <h1>about</h1>;
-};
-
-const UserInfo = () => {
-  return <h1>userinfo</h1>;
+const Page404 = () => {
+  return <h1>Error:404</h1>;
 };
 
 function App() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const auth = useAuth();
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await getPost();
-      // console.log("response", response);
-      if (response.success) {
-        setPosts(response.data.posts);
-      }
-      setLoading(false);
-    };
-    fetchPosts();
-  }, []);
-
-  if (loading) {
+  if (auth.loading) {
     return <Loader />;
   }
 
@@ -38,10 +19,9 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home posts={posts} />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user/asasa" element={<UserInfo />} />
+          <Route path="/Signup" element={<Signup />} />
         </Routes>
       </Router>
     </div>

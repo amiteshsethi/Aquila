@@ -1,32 +1,36 @@
 import styles from "../styles/login.module.css";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { login } from "../api";
-
+import { useAuth } from "../hooks";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loggingIn, setloggingIn] = useState(false);
+  const auth = useAuth();
+  console.log(auth);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setloggingIn(true);
 
     if (!email || !password) {
-      toast.error("Enter Eamil & Password");
+      toast.error("No Eamil & Password Entered");
       setloggingIn(false);
+      return;
     }
 
-    const response = await login(email,password) 
+    const response = await auth.login(email, password);
 
     if (response.success) {
-        toast.success('Successfully LogedIn')
+      toast.success("Successfully LogedIn");
+      navigate("/");
     } else {
-        toast.error(response.message)
+      toast.error(response.message);
     }
     setloggingIn(false);
-
   };
 
   return (
@@ -41,6 +45,7 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
+
       <div className={styles.field}>
         <input
           type="password"
@@ -49,8 +54,11 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div className={styles.field} >
-        <button disabled={loggingIn}>{loggingIn ? "loggingIn..." : "LogIn"}</button>
+
+      <div className={styles.field}>
+        <button disabled={loggingIn}>
+          {loggingIn ? "loggingIn..." : "LogIn"}
+        </button>
       </div>
     </form>
   );
