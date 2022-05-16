@@ -45,7 +45,7 @@ const Home = () => {
             <div className={styles.postActions}>
               <div className={styles.postLike}>
                 <img
-                  src="https://cdn-icons.flaticon.com/png/512/210/premium/210545.png?token=exp=1651725343~hmac=0611bbd04aefe38281c9bd938ee175fd"
+                  src="https://cdn-icons-png.flaticon.com/512/833/833472.png"
                   alt="likes-icon"
                 />
                 <span>112</span>
@@ -53,7 +53,7 @@ const Home = () => {
 
               <div className={styles.postCommentsIcon}>
                 <img
-                  src="https://cdn-icons.flaticon.com/png/512/5910/premium/5910103.png?token=exp=1651725433~hmac=e00cdda90ce5077179c0cd33da937b8f"
+                  src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png"
                   alt="comments-icon"
                 />
                 <span>1</span>

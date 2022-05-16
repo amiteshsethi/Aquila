@@ -3,7 +3,7 @@
     box-sizing: border-box;
     border-radius: 4px;
     margin-top: 20px;
-    background: #fff;
+    background: rgb(255, 255, 255);
   }
   .postHeader {
     padding: 10px 10px;
@@ -20,7 +20,7 @@
     height: 40px;
   }
   .postAvatar .postAuthor {
-    color: #616161;
+    color: #020303;
     /* font-family: Open Sans; */
     font-style: normal;
     font-weight: 600;

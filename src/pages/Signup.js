@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { useNavigate } from 'react-router-dom';
 import styles from "../styles/login.module.css";
 import { useAuth } from "../hooks";
+import { Navigate } from 'react-router-dom';
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +11,6 @@ const Signup = () => {
   const [confirmpassword, setConfirmpassword] = useState("");
   const [signingup, setSigningupp] = useState(false);
   const auth = useAuth();
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,12 +30,10 @@ const Signup = () => {
       password,
       confirmpassword
     );
-    // console.log(response);
-    // console.log(response.data);
 
     if (response.success) {
-      navigate('/login')
-      toast.success("Successfully Registered !!!");
+      // navigate('/login')
+      toast.success("Successfully SignUped !!!");
       toast.success("You Can Log - In now . ");
 
       setSigningupp(false)
@@ -45,6 +42,10 @@ const Signup = () => {
     }
     setSigningupp(false);
   };
+
+  if(auth.user){
+    return <Navigate to="/" />
+  }
 
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
