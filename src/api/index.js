@@ -56,16 +56,51 @@ export const login = (email, password) => {
   });
 };
 
-export const register = (email , name , password , confirmpassword) => {
-  return customFetch(API_URLS.signup(),{
-    method:"POST",
-    body: { email , name , password , confirm_password :confirmpassword  }
-  })
-}
+export const register = (email, name, password, confirmpassword) => {
+  return customFetch(API_URLS.signup(), {
+    method: "POST",
+    body: { email, name, password, confirm_password: confirmpassword },
+  });
+};
 
-export const editProfile = (userId  , name , password , confirmpassword) => {
-  return customFetch(API_URLS.editUser(),{
-    method:"POST",
-    body: { id :userId , name , password , confirm_password :confirmpassword  }
-  })
-} 
+export const editProfile = (userId, name, password, confirmpassword) => {
+  return customFetch(API_URLS.editUser(), {
+    method: "POST",
+    body: { id: userId, name, password, confirm_password: confirmpassword },
+  });
+};
+
+export const fetchUserProfile = (userId) => {
+  return customFetch(API_URLS.userInfo(userId), {
+    method: "GET",
+  });
+};
+
+export const fetchUserFriends = () => {
+  return customFetch(API_URLS.friends(), {
+    method: " GET",
+  });
+};
+
+export const addFriend = (userId) => {
+  return customFetch(API_URLS.createFriendship(userId), {
+    method: "POST",
+  });
+};
+
+
+export const removeFriend = (userId) => {
+  return customFetch(API_URLS.removeFriend(userId), {
+    method: "POST",
+  });
+};
+
+
+export const addPost = (content) => {
+  return customFetch(API_URLS.createPost(), {
+    method: "POST",
+    body : {
+      content,
+    }
+  });
+};

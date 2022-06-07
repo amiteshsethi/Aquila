@@ -1,4 +1,4 @@
-import { Home, Login, Signup, Settings } from "../pages/index";
+import { Home, Login, Signup, Settings,UserProfile } from "../pages/index";
 import { Loader, Navbar } from "./";
 import {
   BrowserRouter as Router,
@@ -32,6 +32,7 @@ import { useAuth } from "../hooks/index";
 // for more info = https://dev.to/iamandrewluca/private-route-in-react-router-v6-lg5
 
 // creating aprivate route function in now v6
+
 function PrivateRoute({ children }) {
   const auth = useAuth();
   return auth.user ? children : <Navigate to="/login" />;
@@ -40,13 +41,15 @@ function PrivateRoute({ children }) {
 function Error404() {
   return(
     <>
-      <h1>Error : 404  --> Page Not found </h1>
+      <h1>Error : 404 !! </h1>
+      <h3> The page you are looking for is not found </h3>
     </>
   )
 }
 
 function App() {
   const auth = useAuth();
+  console.log('auth',auth);
 
   if (auth.loading) {
     return <Loader />;
@@ -65,6 +68,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Settings />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/user/:userId"
+            element={
+              <PrivateRoute>
+                <UserProfile />
               </PrivateRoute>
             }
           />

@@ -43,6 +43,7 @@ const Signup = () => {
     setSigningupp(false);
   };
 
+  //restricted route
   if(auth.user){
     return <Navigate to="/" />
   }
