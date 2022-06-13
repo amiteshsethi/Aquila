@@ -1,9 +1,10 @@
 import { useContext, useState, useEffect } from "react";
 
-import { AuthContext } from "../providers/AuthProvider";
+import { AuthContext, PostsContext } from "../providers";
 import {
   editProfile,
   fetchUserFriends,
+  getPost,
   login as userLogin,
   register,
 } from "../api";
@@ -123,8 +124,8 @@ export const useProvideAuth = () => {
     );
     setUser({
       ...user,
-      friendships : newFriends
-    })
+      friendships: newFriends,
+    });
   };
 
   return {
@@ -135,5 +136,36 @@ export const useProvideAuth = () => {
     loading,
     updateUser,
     updateUserFriends,
+  };
+};
+
+export const usePosts = () => {
+  return useContext(PostsContext);
+};
+
+export const useProvidePosts = () => {
+  const [posts, setPosts] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await getPost();
+      if (response.success) {
+        setPosts(response.data.posts);
+      }
+      setLoading(false);
+    };
+    fetchPosts();
+  }, []);
+
+  const addPostToState = (post) => {
+    const newPosts = [post, ...posts];
+    setPosts(newPosts);
+  };
+
+  return {
+    data: posts,
+    loading,
+    addPostToState,
   };
 };

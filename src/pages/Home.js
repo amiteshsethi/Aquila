@@ -1,29 +1,16 @@
 import styles from "../styles/home.module.css";
 import PropTypes from "prop-types";
 import Comment from "../components/Comment";
-import { getPost } from "../api";
-import { useEffect, useState } from "react";
 import { CreatePost, FriendsList, Loader } from "../components";
 import { Link } from "react-router-dom";
-import { useAuth } from "../hooks";
+import { useAuth, usePosts } from "../hooks";
 
 const Home = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const auth = useAuth;
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await getPost();
-      if (response.success) {
-        setPosts(response.data.posts);
-      }
-      setLoading(false);
-    };
-    fetchPosts();
-  }, []);
+  const auth = useAuth();
+  const posts = usePosts();
 
-  if (loading) {
+  if (posts.loading) {
     return <Loader />;
   }
 
@@ -32,7 +19,7 @@ const Home = () => {
       <div className={styles.postsList}>
         <CreatePost />
 
-        {posts.map((post) => (
+        {posts.data.map((post) => (
           <div className={styles.postWrapper} key={`post-${post._id}`}>
             <div className={styles.postHeader}>
               <div className={styles.postAvatar}>
@@ -70,7 +57,7 @@ const Home = () => {
                     src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png"
                     alt="comments-icon"
                   />
-                  <span>21</span>
+                  <span>12</span>
                 </div>
               </div>
               <div className={styles.postCommentBox}>
