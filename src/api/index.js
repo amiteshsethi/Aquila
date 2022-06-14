@@ -88,19 +88,41 @@ export const addFriend = (userId) => {
   });
 };
 
-
 export const removeFriend = (userId) => {
   return customFetch(API_URLS.removeFriend(userId), {
     method: "POST",
   });
 };
 
-
 export const addPost = (content) => {
   return customFetch(API_URLS.createPost(), {
     method: "POST",
-    body : {
+    body: {
       content,
-    }
+    },
+  });
+};
+
+export const createComment = async (content, postId) => {
+  return customFetch(API_URLS.comment(), {
+    method: "POST",
+    body: {
+      post_id: postId,
+      content,
+    },
+  });
+};
+
+
+export const togglelike = (itemId, itemType) => {
+  return customFetch(API_URLS.toggleLike(itemId, itemType), {
+    method: "POST",
+  });
+};
+
+
+export const searchUsers = (searchText) => {
+  return customFetch(API_URLS.searchUsers(searchText), {
+    method: "GET",
   });
 };

@@ -70,6 +70,9 @@
     display: flex;
     align-items: center;
   }
+  .postLike>button{
+    border:none;
+  }
   .postCommentsIcon {
     margin-left: 15px;
     display: flex;
