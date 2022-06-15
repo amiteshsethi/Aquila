@@ -35,6 +35,7 @@ function Navbar() {
         </Link>
       </div>
 
+      {auth.user && 
       <div className={styles.searchContainer}>
         <img
           className={styles.searchIcon}
@@ -74,7 +75,7 @@ function Navbar() {
             </ul>
           </div>
         )}
-      </div>
+      </div> }
 
       <div className={styles.rightNav}>
         {auth.user && (

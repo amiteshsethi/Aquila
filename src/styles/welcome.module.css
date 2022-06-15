@@ -1,0 +1,25 @@
+.welcomeHeader {
+    font-weight: 600;
+    font-size: 30px;
+    color: #3e0993;
+  }
+  .welcome {
+    /* background-color: #fff; */
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin: 150px auto;
+    border-radius: 19px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  .welcome>span {
+    font-weight: 600;
+    font-size: 20px;
+    color: rgb(229, 74, 8);
+  }
+  

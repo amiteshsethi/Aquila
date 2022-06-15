@@ -1,5 +1,4 @@
 import styles from "../styles/home.module.css";
-// import PropTypes from "prop-types";
 import { CreatePost, FriendsList, Loader } from "../components";
 import { useAuth, usePosts } from "../hooks";
 import Post from "../components/Post";
@@ -15,16 +14,20 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      <Welcome />
-      {auth.user && 
-      <div className={styles.postsList}>
-        <CreatePost />
+      {auth.user ? (
+        <>
+          <div className={styles.postsList}>
+            <CreatePost />
 
-        {posts.data.map((post) => (
-          <Post post={post} key={`post-${post._id}`} />
-        ))}
-      </div> }
-      {auth.user && <FriendsList />}
+            {posts.data.map((post) => (
+              <Post post={post} key={`post-${post._id}`} />
+            ))}
+          </div>
+          <FriendsList />
+        </>
+      ) : (
+        <Welcome />
+      )}
     </div>
   );
 };

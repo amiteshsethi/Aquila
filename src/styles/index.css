@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:#dce0e7;
+  background-color:#ccc2c2;
+  background-image: url('https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg?t=st=1655294259~exp=1655294859~hmac=7252ad4ce4e0f40c05ba9dd6c6a45673c2112cacaa31ca9ac186cd94ab8d1f71&w=900');
 }
 
 code {
@@ -37,4 +38,3 @@ code {
     -webkit-transform: rotate(360deg);
   }
 }
-

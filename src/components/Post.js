@@ -84,7 +84,7 @@ const Post = ({ post }) => {
               src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png"
               alt="comments-icon"
             />
-            <span>12</span>
+            <span>{post.comments.length}</span>
           </div>
         </div>
         <div className={styles.postCommentBox}>
