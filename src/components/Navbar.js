@@ -9,20 +9,19 @@ function Navbar() {
   const [searchText, setSearchText] = useState("");
   const auth = useAuth();
 
-
   useEffect(() => {
     const fetchusers = async () => {
-      const response = await searchUsers(searchText)
-      if (response.success){
-        setResults(response.data.users)
+      const response = await searchUsers(searchText);
+      if (response.success) {
+        setResults(response.data.users);
       }
-    }
-    if(searchText.length > 2){
-      fetchusers()
+    };
+    if (searchText.length > 2) {
+      fetchusers();
     } else {
-      setResults([])
+      setResults([]);
     }
-  },[searchText])
+  }, [searchText]);
 
   return (
     <div className={styles.nav}>
@@ -57,11 +56,18 @@ function Navbar() {
                   key={`user-${user._id}`}
                 >
                   <Link to={`/user/${user._id}`}>
-                    <img
-                      src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144709.png?token=exp=1652428366~hmac=f0cb04af19ed70c17f538d6f79cdbeec"
-                      alt="user-img"
-                    />
-                    <span>{user.name}</span>
+                    <div
+                      onClick={() => {
+                        setResults([]);
+                        setSearchText("");
+                      }}
+                    >
+                      <img
+                        src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144709.png?token=exp=1652428366~hmac=f0cb04af19ed70c17f538d6f79cdbeec"
+                        alt="user-img"
+                      />
+                      <span>{user.name}</span>
+                    </div>
                   </Link>
                 </li>
               ))}

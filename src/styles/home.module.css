@@ -72,6 +72,7 @@
   }
   .postLike>button{
     border:none;
+    background: none;
   }
   .postCommentsIcon {
     margin-left: 15px;
