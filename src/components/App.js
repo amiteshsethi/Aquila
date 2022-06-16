@@ -49,7 +49,7 @@ function Error404() {
 
 function App() {
   const auth = useAuth();
-  console.log('auth',auth);
+  // console.log('auth',auth);
 
   if (auth.loading) {
     return <Loader />;

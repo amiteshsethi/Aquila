@@ -29,60 +29,61 @@ function Navbar() {
         <Link to="/">
           <img
             className={styles.logo}
-            src="https://i.pinimg.com/736x/74/14/0d/74140da6f54f5f34eafc0c9d45ef8222.jpg"
+            src="https://m.media-amazon.com/images/I/61h7vvsg31L._SL1000_.jpg"
             alt=""
           />
         </Link>
       </div>
 
-      {auth.user && 
-      <div className={styles.searchContainer}>
-        <img
-          className={styles.searchIcon}
-          src="https://cdn-icons-png.flaticon.com/512/7767/7767162.png"
-          alt="search-icon"
-        />
-        <input
-          placeholder="search users"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
+      {auth.user && (
+        <div className={styles.searchContainer}>
+          <img
+            className={styles.searchIcon}
+            src="https://cdn-icons-png.flaticon.com/512/7767/7767162.png"
+            alt="search-icon"
+          />
+          <input
+            placeholder="search users"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
 
-        {results.length > 0 && (
-          <div className={styles.searchResults}>
-            <ul>
-              {results.map((user) => (
-                <li
-                  className={styles.searchResultsRow}
-                  key={`user-${user._id}`}
-                >
-                  <Link to={`/user/${user._id}`}>
-                    <div
-                      onClick={() => {
-                        setResults([]);
-                        setSearchText("");
-                      }}
-                    >
-                      <img
-                        src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144709.png?token=exp=1652428366~hmac=f0cb04af19ed70c17f538d6f79cdbeec"
-                        alt="user-img"
-                      />
-                      <span>{user.name}</span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div> }
+          {results.length > 0 && (
+            <div className={styles.searchResults}>
+              <ul>
+                {results.map((user) => (
+                  <li
+                    className={styles.searchResultsRow}
+                    key={`user-${user._id}`}
+                  >
+                    <Link to={`/user/${user._id}`}>
+                      <div
+                        onClick={() => {
+                          setResults([]);
+                          setSearchText("");
+                        }}
+                      >
+                        <img
+                          src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144709.png?token=exp=1652428366~hmac=f0cb04af19ed70c17f538d6f79cdbeec"
+                          alt="user-img"
+                        />
+                        <span>{user.name}</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
 
       <div className={styles.rightNav}>
         {auth.user && (
           <div className={styles.user}>
             <Link to="/settings">
               <img
-                src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144709.png?token=exp=1652428366~hmac=f0cb04af19ed70c17f538d6f79cdbeec"
+                src="https://cdn-icons.flaticon.com/png/512/552/premium/552909.png?token=exp=1655380041~hmac=6da438a0577f6b687b2fc6cf2bb62640"
                 alt="user_img"
                 className={styles.userDp}
               />
@@ -99,6 +100,15 @@ function Navbar() {
               </>
             ) : (
               <>
+                <li>
+                  <a target="_blank" rel="noreferrer"  href="https://amiteshsethi.github.io/Resume/">Developer</a>
+                </li>
+                <li>
+                  <a target="_blank" rel="noreferrer"  href="https://github.com/amiteshsethi?tab=repositories">
+                    Github
+                  </a>
+                </li>
+
                 <li>
                   <Link to="/login">Login</Link>
                 </li>

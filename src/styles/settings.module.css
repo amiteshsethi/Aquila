@@ -39,16 +39,16 @@
   .settings .editBtn {
     border: 1px solid #ef7917;
     box-sizing: border-box;
-    color: #ef7917;
+    color: #008060;
   }
   .settings .saveBtn {
-    background: #ef7917;
+    background: #008060;
     color: #fff;
     border: none;
     padding: 10px 20px;
   }
   .settings .goBack {
-    color: #ef7917;
+    color: #008060;
     margin-top: 7px;
     font-size: 13px;
   }
