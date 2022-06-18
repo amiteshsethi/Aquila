@@ -3,6 +3,7 @@ import styles from "../styles/Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks";
 import { searchUsers } from "../api";
+import userimg from '../assests/images/userimg.png'
 
 function Navbar() {
   const [results, setResults] = useState([]);
@@ -64,8 +65,8 @@ function Navbar() {
                         }}
                       >
                         <img
-                          src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144709.png?token=exp=1652428366~hmac=f0cb04af19ed70c17f538d6f79cdbeec"
-                          alt="user-img"
+                          src={userimg}
+                          alt="user-image"
                         />
                         <span>{user.name}</span>
                       </div>
@@ -83,7 +84,7 @@ function Navbar() {
           <div className={styles.user}>
             <Link to="/settings">
               <img
-                src="https://cdn-icons.flaticon.com/png/512/552/premium/552909.png?token=exp=1655380041~hmac=6da438a0577f6b687b2fc6cf2bb62640"
+                src={userimg}
                 alt="user_img"
                 className={styles.userDp}
               />

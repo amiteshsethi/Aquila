@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { usePosts } from "../hooks";
 import toast from "react-hot-toast";
 import { createComment, togglelike } from "../api";
+import userimg from "../assests/images/userimg.png";
 
 const Post = ({ post }) => {
   const [comment, setComment] = useState("");
@@ -48,7 +49,7 @@ const Post = ({ post }) => {
       <div className={styles.postHeader}>
         <div className={styles.postAvatar}>
           <img
-            src="https://cdn-icons.flaticon.com/png/512/552/premium/552909.png?token=exp=1655380041~hmac=6da438a0577f6b687b2fc6cf2bb62640"
+            src={userimg}
             alt="user-pic"
           />
           <div>
