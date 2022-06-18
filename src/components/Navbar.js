@@ -3,6 +3,7 @@ import styles from "../styles/Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks";
 import { searchUsers } from "../api";
+import userimg from "../assets/userimg.png";
 
 function Navbar() {
   const [results, setResults] = useState([]);
@@ -63,10 +64,7 @@ function Navbar() {
                           setSearchText("");
                         }}
                       >
-                        <img
-                          src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144709.png?token=exp=1652428366~hmac=f0cb04af19ed70c17f538d6f79cdbeec"
-                          alt="user-img"
-                        />
+                        <img src={userimg} alt="user-img" />
                         <span>{user.name}</span>
                       </div>
                     </Link>
@@ -101,10 +99,20 @@ function Navbar() {
             ) : (
               <>
                 <li>
-                  <a target="_blank" rel="noreferrer"  href="https://amiteshsethi.github.io/Resume/">Developer</a>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://amiteshsethi.github.io/Resume/"
+                  >
+                    Developer
+                  </a>
                 </li>
                 <li>
-                  <a target="_blank" rel="noreferrer"  href="https://github.com/amiteshsethi?tab=repositories">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://github.com/amiteshsethi?tab=repositories"
+                  >
                     Github
                   </a>
                 </li>
