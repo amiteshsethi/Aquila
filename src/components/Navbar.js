@@ -66,7 +66,7 @@ function Navbar() {
                       >
                         <img
                           src={userimg}
-                          alt="user-image"
+                          alt="user-img"
                         />
                         <span>{user.name}</span>
                       </div>
