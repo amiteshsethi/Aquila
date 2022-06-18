@@ -5,7 +5,6 @@ import { addFriend, fetchUserProfile, removeFriend } from "../api";
 import toast from "react-hot-toast";
 import { Loader } from "../components";
 import { useAuth } from "../hooks";
-import userimg from '../assets/userimg.png'
 
 const UserProfile = () => {
   const [user, setUser] = useState({});
@@ -85,8 +84,8 @@ const UserProfile = () => {
     <div className={styles.settings}>
       <div className={styles.imgContainer}>
         <img
-          src={userimg}
-          alt="user-profile"
+          src="https://cdn-icons.flaticon.com/png/512/552/premium/552909.png?token=exp=1655380041~hmac=6da438a0577f6b687b2fc6cf2bb62640"
+          alt=""
         />
       </div>
 
