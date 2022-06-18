@@ -52,7 +52,7 @@ const Settings = () => {
     } else {
       return toast.error(response.message);
     }
-    setSavingForm(true);
+    // setSavingForm(true);
   };
 
   return (

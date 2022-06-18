@@ -9,12 +9,12 @@ import userimg from "../assests/images/userimg.png";
 
 const Post = ({ post }) => {
   const [comment, setComment] = useState("");
-  const [creatingComment, setCreatingComment] = useState(false);
+  // const [creatingComment, setCreatingComment] = useState(false);
   const posts = usePosts();
 
   const handleAddComment = async (e) => {
     if (e.key === "Enter") {
-      setCreatingComment(true);
+      // setCreatingComment(true);
 
       const response = await createComment(comment, post._id);
 
@@ -25,7 +25,7 @@ const Post = ({ post }) => {
       } else {
         toast.error(response.message);
       }
-      setCreatingComment(false);
+      // setCreatingComment(false);
     }
   };
 
